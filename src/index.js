@@ -1,18 +1,48 @@
 import { Router } from "itty-router";
 
-// create a router
-const router = Router(); // this is a Proxy, not a class
+import { htmlTemplate } from "./html-template";
 
-// GET collection index
-router.get("/notes", () => new Response("Notes Index!"));
+const router = Router();
 
-// GET item
-router.get("/notes/:id", ({ params }) => new Response(`Notes #${params.id}`));
+// GET notes list
+router.get("/notes", () => {
+	const html = htmlTemplate({
+		title: "🐶 Doggo Woofs",
+		content: "<p>Heckin what a nice doggo woof list!</p>",
+		css: null,
+	});
+	return new Response(html, {
+		headers: {
+			"content-type": "text/html; charset=UTF-8",
+		},
+	});
+});
 
-// 404 for everything else
-router.all("*", () => new Response("Not Found.", { status: 404 }));
+// GET specific note
+router.get("/notes/:id", ({ params }) => {
+	console.log(`Params = ${JSON.stringify(params)}`);
+	const html = htmlTemplate({
+		title: `🐶 Doggo Woof ${params.id}`,
+		content:
+			"<p>The neighborhood pupper you are doing me the shock he made many woofs very taste wow stop it fren the neighborhood pupper very good spot heckin angery woofer, blep you are doing me the shock pupper big ol dat tungg tho pupperino.</p>",
+		css: null,
+	});
+
+	return new Response(html, {
+		headers: {
+			"content-type": "text/html; charset=UTF-8",
+		},
+	});
+});
+
+// All other GETs
+router.get("*", () => new Response("Not Found.", { status: 404 }));
+
+// Forbidden for everything else
+router.all("*", () => new Response("Forbidden", { status: 403 }));
 
 // attach the router "handle" to the event handler
-addEventListener("fetch", event =>
-	event.respondWith(router.handle(event.request)),
-);
+addEventListener("fetch", event => {
+	console.log(`${event.request.method} ${event.request.url} at ${Date.now()}`);
+	event.respondWith(router.handle(event.request));
+});
