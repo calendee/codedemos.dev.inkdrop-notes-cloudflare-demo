@@ -1,6 +1,11 @@
-name = "inkdrop-notes"
+name = "inkdrop-notes-demo-dev"
 type = "webpack"
 account_id = "PUT_YOUR_ACCOUNT_ID_HERE"
 workers_dev = true
 route = ""
 zone_id = "PUT_YOUR_ZONE_ID_HERE"
+webpack_config = "webpack.development.js"
+
+[env.production]
+name = "inkdrop-notes-demo-production"
+webpack_config = "webpack.production.js"
