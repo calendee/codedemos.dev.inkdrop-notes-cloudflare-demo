@@ -1,0 +1,6 @@
+name = "inkdrop-notes"
+type = "webpack"
+account_id = "PUT_YOUR_ACCOUNT_ID_HERE"
+workers_dev = true
+route = ""
+zone_id = "PUT_YOUR_ZONE_ID_HERE"
