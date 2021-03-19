@@ -5,10 +5,7 @@ export const htmlTemplate = ({ content, css, title }) => `
 	<meta charset="utf-8">
 	<title>${title}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	<style>${css}</style>
-
-	<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
 </head>
 
 <body>

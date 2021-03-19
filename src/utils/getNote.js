@@ -48,12 +48,13 @@ export async function getNote(slug) {
 	console.log(json);
 
 	const htmlFromMarkdown = marked(json.body);
-	const css = await INKDROP_NOTES.get("css");
+	const coreCss = await INKDROP_NOTES.get("core-css");
+	console.log("coreCss", coreCss);
 
 	const html = htmlTemplate({
 		title: json.title,
 		content: htmlFromMarkdown,
-		css,
+		css: coreCss,
 	});
 
 	return new Response(html, {
