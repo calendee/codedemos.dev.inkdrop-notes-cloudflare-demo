@@ -12,6 +12,8 @@ kv_namespaces = [
 ]
 
 [env.production]
+route = "PUT_YOUR_FULL_DOMAIN_HERE/*"
+workers_dev = false
 webpack_config = "webpack.production.js"
 kv_namespaces = [
 	 { binding = "INKDROP_NOTES", id = "f5cbf41970924fc0a864cbdd35bca382", preview_id = "f5cbf41970924fc0a864cbdd35bca382" }
