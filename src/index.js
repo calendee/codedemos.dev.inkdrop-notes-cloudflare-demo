@@ -1,6 +1,5 @@
 import { Router } from "itty-router";
-
-import { htmlTemplate } from "./html-template";
+import { getNote } from "./utils/getNote";
 
 const router = Router();
 
@@ -19,20 +18,8 @@ router.get("/notes", () => {
 });
 
 // GET specific note
-router.get("/notes/:id", ({ params }) => {
-	console.log(`Params = ${JSON.stringify(params)}`);
-	const html = htmlTemplate({
-		title: `🐶 Doggo Woof ${params.id}`,
-		content:
-			"<p>The neighborhood pupper you are doing me the shock he made many woofs very taste wow stop it fren the neighborhood pupper very good spot heckin angery woofer, blep you are doing me the shock pupper big ol dat tungg tho pupperino.</p>",
-		css: null,
-	});
-
-	return new Response(html, {
-		headers: {
-			"content-type": "text/html; charset=UTF-8",
-		},
-	});
+router.get("/notes/:slug", async ({ params }) => {
+	return await getNote(params.slug);
 });
 
 // All other GETs

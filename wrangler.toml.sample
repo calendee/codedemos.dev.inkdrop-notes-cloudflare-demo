@@ -1,4 +1,4 @@
-name = "inkdrop-notes-demo-dev"
+name = "inkdrop-notes-demo"
 type = "webpack"
 account_id = "PUT_YOUR_ACCOUNT_ID_HERE"
 workers_dev = true
@@ -6,6 +6,13 @@ route = ""
 zone_id = "PUT_YOUR_ZONE_ID_HERE"
 webpack_config = "webpack.development.js"
 
+[env.dev]
+kv_namespaces = [
+	 { binding = "INKDROP_NOTES", id = "9083d4fdc3764d488914e2cafe046abe", preview_id = "9083d4fdc3764d488914e2cafe046abe" }
+]
+
 [env.production]
-name = "inkdrop-notes-demo-production"
 webpack_config = "webpack.production.js"
+kv_namespaces = [
+	 { binding = "INKDROP_NOTES", id = "f5cbf41970924fc0a864cbdd35bca382", preview_id = "f5cbf41970924fc0a864cbdd35bca382" }
+]

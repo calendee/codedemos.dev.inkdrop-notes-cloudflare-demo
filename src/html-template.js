@@ -1,6 +1,5 @@
 export const htmlTemplate = ({ content, css, title }) => `
 <!doctype html>
-<!-- version 13 -->
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -9,8 +8,7 @@ export const htmlTemplate = ({ content, css, title }) => `
 
 	<style>${css}</style>
 
-	<!-- UNCOMMENT THIS !!!! -->
-	<!-- <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css"> -->
+	<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
 </head>
 
 <body>
